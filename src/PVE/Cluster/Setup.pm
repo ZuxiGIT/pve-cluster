@@ -359,6 +359,7 @@ sub gen_local_dirs {
 	"$pmxcfs_base_dir/nodes/$nodename",
 	"$pmxcfs_base_dir/nodes/$nodename/lxc",
 	"$pmxcfs_base_dir/nodes/$nodename/qemu-server",
+	"$pmxcfs_base_dir/nodes/$nodename/qemu-server/integrity-control",
 	"$pmxcfs_base_dir/nodes/$nodename/openvz",
 	"$pmxcfs_base_dir/nodes/$nodename/priv");
 
