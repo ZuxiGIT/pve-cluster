@@ -63,6 +63,9 @@ my $observed = {
     'priv/acme/plugins.cfg' => 1,
     'priv/ipam.db' => 1, # TODO: replaced by sdn/ipam-pve-db.json, remove in PVE 9+
     'priv/macs.db' => 1, # TODO: replaced by sdn/mac-cache.json, remove in PVE 9+
+    'priv/ipam.db' => 1,
+    'priv/macs.db' => 1,
+    '/qemu-server/integrity-control/' => 1,  # is this the right way to add a new dir for configs?????
     '/qemu-server/' => 1,
     '/openvz/' => 1,
     '/lxc/' => 1,
@@ -555,7 +558,7 @@ sub cfs_file_version {
 
     my $version;
     my $infotag;
-    if ($filename =~ m!^nodes/[^/]+/(openvz|lxc|qemu-server)/(\d+)\.conf$!) {
+    if ($filename =~ m!^nodes/[^/]+/(openvz|lxc|qemu-server|qemu-server/integrity-control)/(\d+)\.conf$!) {
 	my ($type, $vmid) = ($1, $2);
 	if ($vmlist && $vmlist->{ids} && $vmlist->{ids}->{$vmid}) {
 	    $version = $vmlist->{ids}->{$vmid}->{version};

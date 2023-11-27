@@ -690,6 +690,11 @@ create_symlinks(cfs_plug_base_t *bplug, const char *nodename)
 	g_free(lnktarget);
 	cfs_plug_base_insert(bplug, (cfs_plug_t*)lnk);
 
+	lnktarget = g_strdup_printf("nodes/%s/qemu-server/integrity-control", nodename);
+	lnk = cfs_plug_link_new("qemu-server-integrity-control", lnktarget);
+	g_free(lnktarget);
+	cfs_plug_base_insert(bplug, (cfs_plug_t*)lnk);
+
 	// FIXME: remove openvz stuff for 7.x
 	lnktarget = g_strdup_printf("nodes/%s/openvz", nodename);
 	lnk = cfs_plug_link_new("openvz", lnktarget);
